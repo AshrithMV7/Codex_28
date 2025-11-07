@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>STUDY COD3X</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+    color: #fff;
+  }
+
+  body {
+    background: radial-gradient(circle at center, #5e17eb, #000);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    transition: opacity 0.8s ease;
+    position: relative;
+    padding: 20px;
+  }
+
+  #slide1 {
+    background: url('./WhatsApp Image 2025-11-07 at 1.39.41 AM.jpeg') no-repeat center center/cover;
+  }
+  #slide1::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  #slide1 > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1, h2, label {
+    margin-bottom: 20px;
+  }
+
+  input, select, button, textarea {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #1e1e2f;
+    color: #fff;
+    width: 250px;
+    font-size: 1rem;
+  }
+
+  textarea {
+    width: 400px;
+    max-width: 90%;
+    height: 100px;
+    resize: vertical;
+  }
+
+  button {
+    background: linear-gradient(90deg, #8a2be2, #5e17eb);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(90deg, #5e17eb, #8a2be2);
+    transform: scale(1.05);
+  }
+
+  .back-btn {
+    background: linear-gradient(90deg, #eb6217, #eb2be2);
+    margin-top: 20px;
+  }
+
+  .back-btn:hover {
+    background: linear-gradient(90deg, #eb2be2, #eb6217);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #resourceButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .resource-button {
+    display: block;
+    background: linear-gradient(90deg,#8a2be2,#5e17eb);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    min-width: 300px;
+    text-align: center;
+  }
+  .resource-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #5e17eb, #8a2be2);
+  }
+
+  .quiz-button {
+    background: linear-gradient(90deg, #17eb8a, #17eb5e);
+  }
+  .quiz-button:hover {
+    background: linear-gradient(90deg, #17eb5e, #17eb8a);
+  }
+
+  .no-resources {
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    margin-top: 20px;
+  }
+
+  .weightage-container {
+    background: rgba(30, 30, 47, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+  }
+
+  .chapter-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(94, 23, 235, 0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chapter-name {
+    flex: 1;
+  }
+
+  .chapter-weight {
+    color: #17eb8a;
+    font-weight: bold;
+  }
+
+  .planner-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .day-plan {
+    background: rgba(30, 30, 47, 0.8);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #8a2be2;
+    text-align: left;
+  }
+
+  .day-title {
+    color: #17eb8a;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .planner-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .session {
+    background: rgba(255,255,255,0.04);
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  .session .time { color: #ffd166; font-weight: bold; }
+  .session .desc { flex:1; }
+
+  .meta {
+    font-size: 0.9rem;
+    color: #ddd;
+    margin-bottom: 10px;
+  }
+
+</style>
+</head>
+<body>
+  <div class="container" id="slide1">
+    <div>
+      <h1>WELCOME TO STUDY COD3X</h1>
+      <button onclick="nextSlide(2)">Continue</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide2">
+    <div>
+      <h2>Login Page</h2>
+      <input type="text" placeholder="Name" id="name" /><br />
+      <input type="text" placeholder="User ID" id="userId" /><br />
+      <input type="password" placeholder="Password" id="password" /><br />
+      <button onclick="nextSlide(3)">Login</button>
+      <button class="back-btn" onclick="nextSlide(1)">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide3">
+    <div>
+      <h2>Select Your Category</h2>
+      <select id="category" onchange="showNextOption()">
+        <option value="">--Select--</option>
+        <option value="school">School (1-10)</option>
+        <option value="puc">PUC (11-12)</option>
+        <option value="competitive">Competitive Exams</option>
+      </select><br />
+      <div id="extraOptions"></div>
+      <button class="back-btn" onclick="nextSlide(2)">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide4">
+    <div>
+      <h2>Select Your Subject</h2>
+      <select id="subject"></select><br />
+      <button onclick="nextSlide(5)">Next</button>
+      <button class="back-btn" onclick="backToCategory()">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide5">
+    <div>
+      <h2>What Would You Like To Do?</h2>
+      <select id="action">
+        <option value="">--Select--</option>
+        <option value="resources">View Study Resources</option>
+        <option value="weightage">View Chapter Weightage</option>
+        <option value="planner">Create Study Planner</option>
+      </select><br />
+      <button onclick="handleAction()">Continue</button>
+      <button class="back-btn" onclick="nextSlide(4)">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide6">
+    <div>
+      <h2>Select Resource Type</h2>
+      <select id="learn">
+        <option value="">Show All Resources</option>
+        <option value="youtube">YouTube Videos</option>
+        <option value="pdf">PDF Notes</option>
+        <option value="paper">Question Papers</option>
+        <option value="quiz">Quiz/Practice Tests</option>
+      </select><br />
+      <button onclick="showResources()">View Resources</button>
+      <button class="back-btn" onclick="nextSlide(5)">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide7">
+    <div>
+      <h2>Resources For You</h2>
+      <div id="resourceButtons"></div>
+      <br><br>
+      <button class="back-btn" onclick="nextSlide(6)">Back</button>
+      <button onclick="location.reload()">Start Over</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide8">
+    <div style="max-width: 900px;">
+      <h2>Chapter Weightage</h2>
+      <div id="weightageContent" class="weightage-container"></div>
+      <button class="back-btn" onclick="nextSlide(5)">Back</button>
+      <button onclick="location.reload()">Start Over</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide9">
+    <div>
+      <h2>Study Planner Setup</h2>
+      <div class="planner-input-group">
+        <label>How many hours can you study daily?</label>
+        <input type="number" id="hoursPerDay" min="1" max="12" value="3" />
+        
+        <label>Study goals/topics to focus on (optional):</label>
+        <textarea id="studyGoals" placeholder="E.g., Focus on weak chapters, prepare for exam, etc."></textarea>
+        
+        <label>Exam date (optional):</label>
+        <input type="date" id="examDate" />
+      </div>
+      <button onclick="generatePlanner()">Generate Weekly Plan</button>
+      <button class="back-btn" onclick="nextSlide(5)">Back</button>
+    </div>
+  </div>
+
+  <div class="container hidden" id="slide10">
+    <div style="max-width: 900px;">
+      <h2>Your Weekly Study Planner</h2>
+      <div class="meta" id="plannerMeta"></div>
+      <div id="plannerContent" class="planner-container"></div>
+      <button class="back-btn" onclick="nextSlide(9)">Back</button>
+      <button onclick="location.reload()">Start Over</button>
+    </div>
+  </div>
+
+<script>
+  let currentCategory = '';
+  let currentSubject = '';
+  let currentClass = '';
+
+  function nextSlide(n) {
+    document.querySelectorAll('.container').forEach(slide => slide.classList.add('hidden'));
+    const newSlide = document.getElementById(`slide${n}`);
+    newSlide.classList.remove('hidden');
+    newSlide.classList.add('fade-in');
+  }
+
+  function backToCategory() {
+    nextSlide(3);
+    if(currentCategory) {
+      document.getElementById('category').value = currentCategory;
+      showNextOption();
+    }
+  }
+
+  function showNextOption() {
+    const category = document.getElementById('category').value;
+    currentCategory = category;
+    const extra = document.getElementById('extraOptions');
+    extra.innerHTML = '';
+
+    if (category === 'school') {
+      extra.innerHTML = `
+        <label>Select Grade:</label><br>
+        <select id="grade">
+          ${Array.from({length: 10}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+        </select><br>
+        <button onclick="setSubjects('school')">Next</button>`;
+    } 
+    else if (category === 'puc') {
+      extra.innerHTML = `
+        <label>Select Year:</label><br>
+        <select id="year">
+          <option value="11">1st Year (11)</option>
+          <option value="12">2nd Year (12)</option>
+        </select><br>
+        <label>Select Branch:</label><br>
+        <select id="branch">
+          <option value="pcmb">PCMB</option>
+          <option value="pcmcs">PCMC's</option>
+        </select><br>
+        <button onclick="setSubjects('puc')">Next</button>`;
+    } 
+    else if (category === 'competitive') {
+      extra.innerHTML = `
+        <label>Select Exam:</label><br>
+        <select id="exam">
+          <option value="jee">JEE</option>
+          <option value="neet">NEET</option>
+          <option value="kcet">KCET</option>
+          <option value="comedk">COMEDK</option>
+        </select><br>
+        <button onclick="setSubjects('competitive')">Next</button>`;
+    }
+  }
+
+  function setSubjects(type) {
+    const subjectSelect = document.getElementById('subject');
+    subjectSelect.innerHTML = '';
+    let subjects = [];
+
+    if (type === 'school') {
+      const grade = document.getElementById('grade').value;
+      currentClass = `class_${grade}`;
+      if (grade <= 2) {
+        subjects = ['Maths', 'English', 'Kannada'];
+      } else if (grade <= 6) {
+        subjects = ['Maths', 'Science', 'English', 'Kannada'];
+      } else {
+        subjects = ['Maths', 'Science', 'English', 'Kannada', 'Social Studies'];
+      }
+    } else if (type === 'puc') {
+      const yearVal = document.getElementById('year').value;
+      currentClass = yearVal === "11" ? "1st puc" : "2nd puc";
+      const branch = document.getElementById('branch').value;
+      if (branch === 'pcmb') {
+        subjects = ['Maths', 'Physics', 'Chemistry', 'Biology', 'English'];
+      } else {
+        subjects = ['Maths', 'Physics', 'Chemistry', 'Computer Science', 'English'];
+      }
+    } else if (type === 'competitive') {
+      currentClass = document.getElementById('exam').value;
+      const exam = currentClass;
+      if (exam === 'neet') {
+        subjects = ['Physics', 'Chemistry', 'Biology'];
+      } else {
+        subjects = ['Physics', 'Chemistry', 'Maths'];
+      }
+    }
+
+    subjects.forEach(sub => {
+      const opt = document.createElement('option');
+      opt.value = sub.toLowerCase().replace(/\s/g, "_");
+      opt.textContent = sub;
+      subjectSelect.appendChild(opt);
+    });
+
+    nextSlide(4);
+  }
+
+  function handleAction() {
+    const action = document.getElementById('action').value;
+    currentSubject = document.getElementById('subject').value;
+    
+    if (!action) {
+      alert('Please select an action');
+      return;
+    }
+
+    if (action === 'resources') {
+      nextSlide(6);
+    } else if (action === 'weightage') {
+      showWeightage();
+    } else if (action === 'planner') {
+      nextSlide(9);
+    }
+  }
+
+  const RESOURCES = {
+    "class_1": {
+      "maths": [ 
+        ["YouTube", "https://youtu.be/jSL5WNcTtUs?si=AyCYvlrNfRS58nwY"],
+        ["Quiz", "https://www.education.com/games/first-grade/math/"]
+      ],
+      "english": [ 
+        ["YouTube", "https://youtu.be/vHoTJuf4aqA?si=NiysUb5sVAZdq4Rr"],
+        ["Quiz", "https://www.education.com/games/first-grade/ela/"]
+      ],
+      "kannada": [ 
+        ["YouTube", "https://youtu.be/dPHq_oDwQe0?si=W0P_NJ0pjx-RYTAs"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/kannada"]
+      ]
+    },
+    "class_7": {
+      "maths": [
+        ["YouTube", "https://youtu.be/0HR6jaJfKqg?si=HngmcNCLOJIXJwhT"],
+        ["PDF", "https://scert.telangana.gov.in/pdf/publication/ebooks2019/7%20maths%20em%202020-21.pdf"],
+        ["Paper", "https://www.vedantu.com/sample-papers/cbse-sample-papers-for-class-7-maths-mock-paper-1"],
+        ["Quiz", "https://www.khanacademy.org/math/cc-seventh-grade-math"]
+      ],
+      "science": [
+        ["YouTube", "https://youtu.be/yR_NqF6IwX4?si=7O3jVBwMQDwAB3W1"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-7-science-notes"],
+        ["Paper", "https://blog.nextgurukul.in/examCorner/Sample-Papers/CBSE/VII/science.html"],
+        ["Quiz", "https://www.education.com/games/seventh-grade/science/"]
+      ],
+      "social_studies": [
+        ["YouTube", "https://youtu.be/rAXXZW9q1xc"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-7-social-science-notes"],
+        ["Quiz", "https://www.education.com/games/seventh-grade/social-studies/"]
+      ]
+    },
+    "1st puc": {
+      "maths": [
+        ["YouTube", "https://youtu.be/00i0onux2X4?si=2SpxNpJYiZjATvWZ"],
+        ["PDF", "https://byjus.com/ncert-solutions-class-11-maths/"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-11-question-paper-maths/"],
+        ["Quiz", "https://www.toppr.com/bytes/maths-quiz/"]
+      ],
+      "physics": [
+        ["YouTube", "https://youtu.be/obSCMxwSAes?si=16zNjug29EjKuxsD"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-11-physics-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-11-question-paper-physics/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/physics"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/DGAqAHJhxvA?si=lpz3mBMOSpLh_Zqg"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-11-chemistry-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-11-question-paper-chemistry/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/chemistry"]
+      ],
+      "biology": [
+        ["YouTube", "https://youtu.be/yR_NqF6IwX4?si=7O3jVBwMQDwAB3W1"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-11-biology-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-11-question-paper-biology/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/biology"]
+      ],
+      "computer_science": [
+        ["YouTube", "https://youtu.be/eWW5PXj0nRw?si=BE-uTwZxqTo7YSz4"],
+        ["PDF", "https://www.pucnotes-solutions.com/1st-pu-notes-computer-science"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-11-question-paper-computer-science/"],
+        ["Quiz", "https://www.geeksforgeeks.org/quiz-corner-gq/"]
+      ]
+    },
+    "2nd puc": {
+      "maths": [
+        ["YouTube", "https://youtu.be/9dpp3J5HKvI?si=SkyilY2oF3GE3hfy"],
+        ["PDF", "https://byjus.com/ncert-solutions-class-12-maths/"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-12-question-paper-maths/"],
+        ["Quiz", "https://www.toppr.com/bytes/maths-quiz/"]
+      ],
+      "physics": [
+        ["YouTube", "https://youtu.be/obSCMxwSAes?si=16zNjug29EjKuxsD"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-12-physics-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-12-question-paper-physics/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/physics"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/DGAqAHJhxvA?si=lpz3mBMOSpLh_Zqg"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-12-chemistry-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-12-question-paper-chemistry/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/chemistry"]
+      ],
+      "biology": [
+        ["YouTube", "https://youtu.be/yR_NqF6IwX4?si=7O3jVBwMQDwAB3W1"],
+        ["PDF", "https://www.vedantu.com/revision-notes/cbse-class-12-biology-notes"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-12-question-paper-biology/"],
+        ["Quiz", "https://www.proprofs.com/quiz-school/topic/biology"]
+      ],
+      "computer_science": [
+        ["YouTube", "https://youtu.be/ZAlg_XDFXvw?si=PQNokz4MHej93zaU"],
+        ["PDF", "https://www.pucnotes-solutions.com/2nd-pu-notes-computer-science"],
+        ["Paper", "https://schools.aglasem.com/karnataka-class-12-question-paper-computer-science/"],
+        ["Quiz", "https://www.geeksforgeeks.org/quiz-corner-gq/"]
+      ]
+    },
+    "jee": {
+      "maths": [
+        ["YouTube", "https://youtu.be/CRA-g56Jixs?si=VMK-1AyT8-MxOkKR"],
+        ["PDF", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/jee-main-mock-test/"]
+      ],
+      "physics": [
+        ["YouTube", "https://youtu.be/CRA-g56Jixs?si=VMK-1AyT8-MxOkKR"],
+        ["PDF", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/jee-main-mock-test/"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/CRA-g56Jixs?si=VMK-1AyT8-MxOkKR"],
+        ["PDF", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/jee-main/last-5-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/jee-main-mock-test/"]
+      ]
+    },
+    "neet": {
+      "physics": [
+        ["YouTube", "https://youtu.be/obSCMxwSAes?si=16zNjug29EjKuxsD"],
+        ["PDF", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/neet-mock-test/"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/DGAqAHJhxvA?si=lpz3mBMOSpLh_Zqg"],
+        ["PDF", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/neet-mock-test/"]
+      ],
+      "biology": [
+        ["YouTube", "https://youtu.be/yR_NqF6IwX4?si=7O3jVBwMQDwAB3W1"],
+        ["PDF", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/neet/last-10-years-question-papers"],
+        ["Quiz", "https://www.embibe.com/exams/neet-mock-test/"]
+      ]
+    },
+    "kcet": {
+      "maths": [
+        ["YouTube", "https://youtu.be/9dpp3J5HKvI?si=SkyilY2oF3GE3hfy"],
+        ["PDF", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Paper", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Quiz", "https://testbook.com/kcet/mock-test"]
+      ],
+      "physics": [
+        ["YouTube", "https://youtu.be/obSCMxwSAes?si=16zNjug29EjKuxsD"],
+        ["PDF", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Paper", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Quiz", "https://testbook.com/kcet/mock-test"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/DGAqAHJhxvA?si=lpz3mBMOSpLh_Zqg"],
+        ["PDF", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Paper", "https://schools.aglasem.com/kcet-question-papers/"],
+        ["Quiz", "https://testbook.com/kcet/mock-test"]
+      ]
+    },
+    "comedk": {
+      "maths": [
+        ["YouTube", "https://youtu.be/9dpp3J5HKvI?si=SkyilY2oF3GE3hfy"],
+        ["PDF", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Quiz", "https://testbook.com/comedk/mock-test"]
+      ],
+      "physics": [
+        ["YouTube", "https://youtu.be/obSCMxwSAes?si=16zNjug29EjKuxsD"],
+        ["PDF", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Quiz", "https://testbook.com/comedk/mock-test"]
+      ],
+      "chemistry": [
+        ["YouTube", "https://youtu.be/DGAqAHJhxvA?si=lpz3mBMOSpLh_Zqg"],
+        ["PDF", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Paper", "https://www.vedantu.com/comedk/last-5-years-question-papers"],
+        ["Quiz", "https://testbook.com/comedk/mock-test"]
+      ]
+    }
+  };
+
+  // WEIGHTAGE object: chapters + % for each subject (used to derive subject importance)
+  const WEIGHTAGE = {
+    "class_7": {
+      "maths": [
+        ["Integers", "15%"],
+        ["Fractions and Decimals", "15%"],
+        ["Data Handling", "10%"],
+        ["Simple Equations", "12%"],
+        ["Lines and Angles", "10%"],
+        ["Comparing Quantities", "10%"],
+        ["Rational Numbers", "12%"],
+        ["Perimeter and Area", "16%"]
+      ],
+      "science": [
+        ["Nutrition in Plants", "10%"],
+        ["Heat", "12%"],
+        ["Motion and Time", "10%"],
+        ["Electric Current", "15%"],
+        ["Light", "15%"],
+        ["Acids, Bases and Salts", "13%"],
+        ["Weather and Climate", "10%"],
+        ["Reproduction in Plants", "15%"]
+      ]
+    },
+    "1st puc": {
+      "maths": [
+        ["Sets and Relations", "8%"],
+        ["Functions", "10%"],
+        ["Trigonometry", "15%"],
+        ["Complex Numbers", "8%"],
+        ["Linear Inequalities", "6%"],
+        ["Permutations & Combinations", "10%"],
+        ["Binomial Theorem", "8%"],
+        ["Sequences and Series", "10%"],
+        ["Straight Lines", "10%"],
+        ["Conic Sections", "8%"],
+        ["Statistics", "7%"]
+      ],
+      "physics": [
+        ["Physical World", "6%"],
+        ["Kinematics", "10%"],
+        ["Laws of Motion", "12%"],
+        ["Work, Energy", "10%"],
+        ["Rotational Motion", "8%"],
+        ["Gravitation", "6%"],
+        ["Oscillations", "8%"],
+        ["Waves", "10%"],
+        ["Thermodynamics", "10%"],
+        ["Electricity", "10%"],
+        ["Optics", "10%"]
+      ],
+      "chemistry": [
+        ["Some Basic Concepts", "8%"],
+        ["Structure of Atom", "10%"],
+        ["Chemical Bonding", "12%"],
+        ["States of Matter", "8%"],
+        ["Thermodynamics", "10%"],
+        ["Equilibrium", "10%"],
+        ["Organic Chemistry Basics", "12%"],
+        ["Hydrocarbons", "10%"],
+        ["Environmental Chemistry", "10%"]
+      ]
+    },
+    "2nd puc": {
+      "maths": [
+        ["Relations & Functions", "8%"],
+        ["Inverse Trigonometric Functions", "6%"],
+        ["Matrices", "7%"],
+        ["Determinants", "6%"],
+        ["Continuity & Differentiability", "12%"],
+        ["Applications of Derivatives", "10%"],
+        ["Integrals", "12%"],
+        ["Applications of Integrals", "8%"],
+        ["Differential Equations", "7%"],
+        ["Vectors & 3D Geometry", "8%"],
+        ["Probability", "6%"]
+      ],
+      "physics": [
+        ["Electrostatics", "10%"],
+        ["Current Electricity", "8%"],
+        ["Magnetism", "7%"],
+        ["Electromagnetic Induction", "8%"],
+        ["Optics", "12%"],
+        ["Dual Nature of Matter", "6%"],
+        ["Atoms & Nuclei", "8%"],
+        ["Semiconductors", "6%"],
+        ["Communication Systems", "7%"],
+        ["Modern Physics", "8%"]
+      ],
+      "chemistry": [
+        ["Solid State", "6%"],
+        ["Solutions", "8%"],
+        ["Electrochemistry", "8%"],
+        ["Chemical Kinetics", "8%"],
+        ["Surface Chemistry", "6%"],
+        ["General Principles of Organic Chemistry", "10%"],
+        ["Aldehydes & Ketones", "8%"],
+        ["Carboxylic Acids", "7%"],
+        ["Amines", "6%"],
+        ["Biomolecules", "7%"],
+        ["Polymers", "4%"],
+        ["Chemistry in Everyday Life", "2%"]
+      ],
+      "biology": [
+        ["Reproduction", "12%"],
+        ["Genetics & Evolution", "14%"],
+        ["Biology & Human Welfare", "10%"],
+        ["Biotechnology", "10%"],
+        ["Ecology & Environment", "12%"],
+        ["Plant Physiology", "10%"],
+        ["Human Physiology", "22%"],
+      ],
+      "computer_science": [
+        ["Programming Concepts", "20%"],
+        ["Data Structures", "20%"],
+        ["DBMS Basics", "15%"],
+        ["Computer Networks", "15%"],
+        ["OOPs", "15%"],
+        ["Practical/Projects", "15%"]
+      ]
+    },
+    // Competitive exam weightages (subject-wise topic %)
+    "jee": {
+      "maths": [
+        ["Algebra", "30%"],
+        ["Calculus", "35%"],
+        ["Trigonometry & Vectors", "15%"],
+        ["Coordinate Geometry", "10%"],
+        ["Probability & Stats", "10%"]
+      ],
+      "physics": [
+        ["Mechanics", "35%"],
+        ["Electrodynamics", "20%"],
+        ["Thermodynamics", "10%"],
+        ["Optics", "15%"],
+        ["Modern Physics", "20%"]
+      ],
+      "chemistry": [
+        ["Physical Chemistry", "35%"],
+        ["Organic Chemistry", "30%"],
+        ["Inorganic Chemistry", "35%"]
+      ]
+    },
+    "neet": {
+      "physics": [
+        ["Mechanics", "30%"],
+        ["Electrodynamics", "15%"],
+        ["Heat & Thermo", "10%"],
+        ["Optics", "15%"],
+        ["Modern Physics", "10%"],
+        ["Waves & Osc", "10%"],
+        ["Misc", "10%"]
+      ],
+      "chemistry": [
+        ["Physical", "35%"],
+        ["Organic", "30%"],
+        ["Inorganic", "35%"]
+      ],
+      "biology": [
+        ["Cell Biology", "15%"],
+        ["Genetics", "15%"],
+        ["Plant Physiology", "10%"],
+        ["Human Physiology", "30%"],
+        ["Ecology", "10%"],
+        ["Diversity & Evolution", "20%"]
+      ]
+    },
+    "kcet": {
+      "maths": [
+        ["Algebra", "30%"],
+        ["Calculus", "25%"],
+        ["Geometry", "25%"],
+        ["Statistics", "10%"],
+        ["Vectors & 3D", "10%"]
+      ],
+      "physics": [
+        ["Mechanics", "30%"],
+        ["Electricity", "20%"],
+        ["Optics", "15%"],
+        ["Heat", "10%"],
+        ["Modern Physics", "10%"],
+        ["Waves", "15%"]
+      ],
+      "chemistry": [
+        ["Physical", "30%"],
+        ["Organic", "30%"],
+        ["Inorganic", "40%"]
+      ]
+    },
+    "comedk": {
+      "maths": [
+        ["Algebra", "28%"],
+        ["Calculus", "30%"],
+        ["Coordinate Geometry", "18%"],
+        ["Trigonometry", "12%"],
+        ["Probability", "12%"]
+      ],
+      "physics": [
+        ["Mechanics", "32%"],
+        ["Electro", "18%"],
+        ["Optics", "12%"],
+        ["Thermodynamics", "10%"],
+        ["Modern Physics", "12%"],
+        ["Waves", "16%"]
+      ],
+      "chemistry": [
+        ["Physical", "34%"],
+        ["Organic", "33%"],
+        ["Inorganic", "33%"]
+      ]
+    }
+  };
+
+  // Helper: display resource buttons for currentClass & subject
+  function showResources() {
+    const typeFilter = document.getElementById('learn').value;
+    const container = document.getElementById('resourceButtons');
+    container.innerHTML = '';
+
+    const classKey = currentClass || Object.keys(RESOURCES)[0];
+    const subjectKey = currentSubject || Object.keys(RESOURCES[classKey])[0];
+
+    if (!RESOURCES[classKey]) {
+      container.innerHTML = `<div class="no-resources">No resources found for the selected class/exam.</div>`;
+      nextSlide(7);
+      return;
+    }
+
+    const resourcesForClass = RESOURCES[classKey];
+    // if subject exists show only that, otherwise show all subjects
+    const subjectsToShow = subjectKey ? [subjectKey] : Object.keys(resourcesForClass);
+
+    let foundAny = false;
+    subjectsToShow.forEach(sk => {
+      const resList = resourcesForClass[sk];
+      if (!resList) return;
+      resList.forEach(r => {
+        const [label, url] = r;
+        if (!typeFilter || label.toLowerCase().includes(typeFilter.toLowerCase()) || (typeFilter === "")) {
+          foundAny = true;
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.className = 'resource-button' + (label.toLowerCase().includes('quiz') ? ' quiz-button' : '');
+          a.textContent = `${(sk.replace(/_/g,' ')).toUpperCase()} - ${label}`;
+          container.appendChild(a);
+        }
+      });
+    });
+
+    if (!foundAny) {
+      container.innerHTML = `<div class="no-resources">No resources matched the selected filter. Try "Show All Resources".</div>`;
+    }
+    nextSlide(7);
+  }
+
+  // Helper: show weightage for currentClass/currentSubject (if available)
+  function showWeightage() {
+    const content = document.getElementById('weightageContent');
+    content.innerHTML = '';
+    const classKey = currentClass || '2nd puc';
+    const subjectKey = currentSubject || null;
+
+    if (!WEIGHTAGE[classKey]) {
+      content.innerHTML = `<div class="no-resources">Weightage data not available for selected class/exam.</div>`;
+      nextSlide(8);
+      return;
+    }
+
+    content.innerHTML += `<div style="font-weight:bold;margin-bottom:10px">Weightage for: ${classKey.toUpperCase()} ${subjectKey ? ' - ' + subjectKey.replace('_',' ') : ''}</div>`;
+
+    const subjects = subjectKey ? [subjectKey] : Object.keys(WEIGHTAGE[classKey]);
+
+    subjects.forEach(sub => {
+      const chapters = WEIGHTAGE[classKey][sub];
+      if (!chapters) {
+        content.innerHTML += `<div class="chapter-item"><div class="chapter-name">${sub.replace(/_/g,' ')}</div><div class="chapter-weight">No data</div></div>`;
+        return;
+      }
+      content.innerHTML += `<div style="margin-top:10px;font-weight:bold">${sub.replace(/_/g,' ').toUpperCase()}</div>`;
+      chapters.forEach(ch => {
+        const name = ch[0];
+        const w = ch[1];
+        content.innerHTML += `<div class="chapter-item"><div class="chapter-name">${name}</div><div class="chapter-weight">${w}</div></div>`;
+      });
+    });
+
+    nextSlide(8);
+  }
+
+  // Utility: parse percent strings like "15%" or "7%" to number
+  function parsePercent(p) {
+    if (!p) return 0;
+    if (typeof p === 'number') return p;
+    const m = (''+p).match(/-?\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : 0;
+  }
+
+  // Compute a subject weight (sum of percentages in WEIGHTAGE[classKey][subjectKey])
+  function getSubjectWeight(classKey, subjectKey) {
+    try {
+      const arr = WEIGHTAGE[classKey] && WEIGHTAGE[classKey][subjectKey];
+      if (!arr) return 1; // fallback
+      let sum = 0;
+      arr.forEach(ch => {
+        sum += parsePercent(ch[1]);
+      });
+      return sum || 1;
+    } catch (e) {
+      return 1;
+    }
+  }
+
+  // Generate detailed weekly planner
+  function generatePlanner() {
+    const hoursPerDay = Number(document.getElementById('hoursPerDay').value) || 3;
+    const studyGoals = document.getElementById('studyGoals').value.trim();
+    const examDateStr = document.getElementById('examDate').value;
+    const plannerContent = document.getElementById('plannerContent');
+    const plannerMeta = document.getElementById('plannerMeta');
+    plannerContent.innerHTML = '';
+    plannerMeta.innerHTML = '';
+
+    // Determine days left if exam date provided
+    let daysLeft = null;
+    if (examDateStr) {
+      const today = new Date();
+      const examDate = new Date(examDateStr + 'T00:00:00');
+      const diff = Math.ceil((examDate - today) / (1000*60*60*24));
+      daysLeft = diff >= 0 ? diff : 0;
+      plannerMeta.innerHTML = `Exam Date: ${examDate.toDateString()}. Days remaining: ${daysLeft}.`;
+    } else {
+      const today = new Date();
+      plannerMeta.innerHTML = `Planner created on ${today.toDateString()}.`;
+    }
+
+    // Select subjects to plan for:
+    // If user selected a specific subject, focus more on it; otherwise pick top subjects from class
+    const classKey = currentClass || '2nd puc';
+    let subjects = [];
+    if (currentSubject) {
+      const human = currentSubject.replace(/_/g,' ');
+      // we'll include the selected subject + up to 2 complementary ones
+      const keys = WEIGHTAGE[classKey] ? Object.keys(WEIGHTAGE[classKey]) : Object.keys(RESOURCES[classKey] || {});
+      subjects = [currentSubject, ...keys.filter(k => k !== currentSubject).slice(0,2)];
+    } else {
+      // pick up to 3 main subjects from class resources or weightage
+      const keysFromWeight = WEIGHTAGE[classKey] ? Object.keys(WEIGHTAGE[classKey]) : [];
+      const keysFromRes = RESOURCES[classKey] ? Object.keys(RESOURCES[classKey]) : [];
+      subjects = (keysFromWeight.length ? keysFromWeight : keysFromRes).slice(0,3);
+    }
+
+    // Ensure subjects are present as keys; if not, fallback to resources keys
+    if (!subjects.length) {
+      const fallback = Object.keys(RESOURCES)[0];
+      subjects = Object.keys(RESOURCES[fallback] || {}).slice(0,3);
+    }
+
+    // Compute weights for each subject
+    const subjWeights = {};
+    let totalWeight = 0;
+    subjects.forEach(s => {
+      const w = getSubjectWeight(classKey, s);
+      subjWeights[s] = w;
+      totalWeight += w;
+    });
+    // If totalWeight is zero (shouldn't), equalize
+    if (totalWeight === 0) {
+      subjects.forEach(s => subjWeights[s] = 1);
+      totalWeight = subjects.length;
+    }
+
+    // For each day, allocate hours based on subjWeights and create sessions (50min study +10min break block)
+    const sessionsPerHour = 60 / 60; // we'll create 50+10 structure, calculate in minutes
+    const minutesPerDay = hoursPerDay * 60;
+    const studyBlock = 50; // study minutes per session
+    const breakBlock = 10;
+    const totalBlock = studyBlock + breakBlock; // 60
+
+    // Number of full sessions per day
+    const fullSessions = Math.floor(minutesPerDay / totalBlock); // e.g., 3 hours -> 3 sessions
+    const leftoverMinutes = minutesPerDay - fullSessions * totalBlock; // could be used for review
+
+    const today = new Date();
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+    for (let day = 1; day <= 7; day++) {
+      const d = new Date();
+      d.setDate(today.getDate() + (day - 1));
+      const dayName = dayNames[d.getDay()];
+      const dayDiv = document.createElement('div');
+      dayDiv.className = 'day-plan';
+      dayDiv.innerHTML = `<div class="day-title">Day ${day} — ${dayName} (${d.toDateString()})</div>`;
+
+      // day info
+      const info = document.createElement('div');
+      info.className = 'meta';
+      if (day === 7) {
+        info.innerHTML = 'Focus: Weekly revision + timed mock test.';
+      } else {
+        info.innerHTML = studyGoals ? `Focus: ${studyGoals}` : 'Focus: Core learning, practice & revision.';
+      }
+      dayDiv.appendChild(info);
+
+      const sessionsContainer = document.createElement('div');
+
+      // For day 7, schedule revision + mock test blocks
+      if (day === 7) {
+        // allocate 60% time to revision, 40% to mock test + analysis
+        const totalMinutes = fullSessions * totalBlock + leftoverMinutes;
+        const revMinutes = Math.max(30, Math.round(totalMinutes * 0.6));
+        const testMinutes = Math.max(30, Math.round(totalMinutes * 0.4));
+
+        // Revision: split by subject proportionally
+        subjects.forEach(s => {
+          const portion = subjWeights[s] / totalWeight;
+          const m = Math.round(revMinutes * portion);
+          if (m >= 20) {
+            const sessionEl = makeSession(`${Math.round(m/60*100)/100}h`, `Revision: ${s.replace(/_/g,' ')} — consolidate notes & formula sheet`);
+            sessionsContainer.appendChild(sessionEl);
+          }
+        });
+
+        // Mock test block
+        const testSession = makeSession(`${Math.round(testMinutes/60*100)/100}h`, `Mock Test: Full/Sectional timed mock + immediate analysis`);
+        sessionsContainer.appendChild(testSession);
+
+        // Post-test reflection
+        const reflect = makeSession(`0.5h`, `Reflection: Analyze mistakes, list top 5 weak topics for next week`);
+        sessionsContainer.appendChild(reflect);
+
+      } else {
+        // For normal days: create fullSessions of (50min study + 10min break)
+        // Assign each study block to a subject based on remaining quotas
+        // Create a day-level quota map (minutes to assign this day)
+        const totalMinutes = fullSessions * totalBlock + leftoverMinutes;
+        const studyMinutesAvailable = fullSessions * studyBlock + leftoverMinutes; // actual study minutes (excluding breaks)
+        const dayQuota = {};
+        subjects.forEach(s => {
+          const portion = subjWeights[s] / totalWeight;
+          const m = Math.round(studyMinutesAvailable * portion);
+          dayQuota[s] = m;
+        });
+
+        // If rounding caused deficit or surplus, tweak
+        let assigned = Object.values(dayQuota).reduce((a,b)=>a+b,0);
+        let diff = studyMinutesAvailable - assigned;
+        let idx = 0;
+        while (diff !== 0 && subjects.length) {
+          const key = subjects[idx % subjects.length];
+          if (diff > 0) { dayQuota[key] += 1; diff--; }
+          else { if (dayQuota[key] > 1) { dayQuota[key] -= 1; diff++; } else { idx++; if (idx>100) break; } }
+          idx++;
+        }
+
+        // Now create session blocks: each session is 50min study for some subject then 10min break
+        let sessionStartMin = 0;
+        for (let sIdx = 0; sIdx < fullSessions; sIdx++) {
+          // pick subject with highest remaining minutes for fairness
+          const pick = subjects.slice().sort((a,b)=> dayQuota[b] - dayQuota[a])[0];
+          if (!pick) break;
+          const use = Math.min(dayQuota[pick], studyBlock);
+          dayQuota[pick] -= use;
+
+          const timeLabel = `${sIdx+1}) ${Math.round(use/60*100)/100}h study`;
+          const desc = `${pick.replace(/_/g,' ')} — Learn & practice (${use} min).`;
+          const sessionEl = makeSession(timeLabel, desc);
+          sessionsContainer.appendChild(sessionEl);
+
+          // break element
+          const breakEl = makeSession(`Break 0.17h`, `Short break: stretch, hydrate (10 min)`);
+          sessionsContainer.appendChild(breakEl);
+        }
+
+        // leftover minutes -> allocate for quick revision or concept consolidation
+        const leftover = Object.values(dayQuota).reduce((a,b)=>a+b,0);
+        if (leftover >= 10) {
+          subjects.forEach(s => {
+            const rem = dayQuota[s];
+            if (rem > 0) {
+              const sessionEl = makeSession(`${Math.round(rem/60*100)/100}h`, `Quick revision / practice questions: ${s.replace(/_/g,' ')}`);
+              sessionsContainer.appendChild(sessionEl);
+            }
+          });
+        }
+
+        // Add end of day reflection
+        const endRef = makeSession(`0.25h`, `Daily reflection: note top 3 learnings & 2 doubts to clarify`);
+        sessionsContainer.appendChild(endRef);
+      }
+
+      dayDiv.appendChild(sessionsContainer);
+      plannerContent.appendChild(dayDiv);
+    }
+
+    // Jump to planner view
+    nextSlide(10);
+  }
+
+  // Helper to create session DOM
+  function makeSession(time, desc) {
+    const div = document.createElement('div');
+    div.className = 'session';
+    div.innerHTML = `<div class="time">${time}</div><div class="desc">${desc}</div>`;
+    return div;
+  }
+
+  // Expose minimal defaults for demo if user hasn't selected (so planner still works)
+  (function setDefaultsIfEmpty() {
+    if (!currentClass) {
+      // default to 2nd puc for a detailed planner demo
+      currentClass = '2nd puc';
+    }
+  })();
+
+</script>
+</body>
+</html>
